@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="val1" />
+    <input type="text" id="val2" />
+    <input type="text" id="result" />
+
+    <button id="add" onclick="add();">Add</button>
+    <button id="subs" onclick="subs();">Substract</button>
+    <button id="multi" onclick="multi();">multiply</button>
+    <button id="div" onclick="div();">division</button>
+    <button id="moduls" onclick="moduls();">moduls</button>
+
+
+    <script>
+      function add(){
+            let value1 = document.querySelector("#val1").value;
+            let value2 = document.querySelector("#val2").value;
+            let result = document.querySelector("#result");
+            value1 = Number(value1)
+            value2 = parseInt(value2)
+            result.value = value1 + value2;
+      }
+
+            function subs(){
+            let value1 = document.querySelector("#val1").value;
+            let value2 = document.querySelector("#val2").value;
+            let result = document.querySelector("#result");
+            value1 = Number(value1)
+            value2 = parseInt(value2)
+            result.value = value1 - value2;
+      }
+
+           function multi(){
+            let value1 = document.querySelector("#val1").value;
+            let value2 = document.querySelector("#val2").value;
+            let result = document.querySelector("#result");
+            value1 = Number(value1)
+            value2 = parseInt(value2)
+            result.value = value1 * value2;
+      }
+
+         function div(){
+            let value1 = document.querySelector("#val1").value;
+            let value2 = document.querySelector("#val2").value;
+            let result = document.querySelector("#result");
+            value1 = Number(value1)
+            value2 = parseInt(value2)
+            result.value = value1 / value2;
+      }
+
+      
+           function moduls(){
+            let value1 = document.querySelector("#val1").value;
+            let value2 = document.querySelector("#val2").value;
+            let result = document.querySelector("#result");
+            value1 = Number(value1)
+            value2 = parseInt(value2)
+            result.value = value1 % value2;
+      }
+
+
+
+
+
+
+      
+    </script>
+  </body> 
+</html>

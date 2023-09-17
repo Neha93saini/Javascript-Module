@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: black;
+    }
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .button{
+        height: 49px;
+        width: 62px;
+        font-size: 20px;
+        background-color:grey;
+        border-color: aqua;
+        border-radius: 3px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    .input{
+        width: 253px;
+        height:50px;
+        margin: auto;
+        font-size: 20px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    .text-center {
+        text-align: center;
+    }
+    #clear{
+        height: 50px;
+        width: 193px;
+        background-color: rgb(18, 17, 17);
+        color: aliceblue;
+    }
+    .contain-margin {
+      margin-top: 50px !important
+    }
+  
+  </style>
+</head> 
+<body>
+  <div class="container contain-margin">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="input-group text-center">
+          <input class="input" type="text">
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <button id="clear" class="button">Clear</button>
+        <button class="button">%</button>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-sm-12 text-center">
+        <button class="button">7</button>
+        <button class="button">8</button>
+        <button class="button">9</button>
+        <button class="button">*</button>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button">/</button>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button">+</button>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <button class="button">0</button>
+        <button class="button">.</button>
+        <button class="button">=</button>
+        <button class="button">-</button>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+      let string ="";
+      let buttons = document.querySelectorAll(".button")
+      console.log(buttons);
+
+      Array.from(buttons).forEach((button)=>{
+          button.addEventListener('click',(event)=>{
+              console.log('event.target.innerHTML', event.target.innerHTML);
+              if(event.target.innerHTML == "="){
+                  string= eval(string)
+                  document.querySelector('input').value = string;
+              } else if(event.target.innerHTML==="Clear"){
+                  string= "";
+                  document.querySelector('input').value = string;
+              }
+              else{
+              console.log(event.target)
+              string= string + event.target.innerHTML;
+              document.querySelector('input').value = string;
+              }
+          })
+
+      }  )
+  </script>
+</body>
+</html>

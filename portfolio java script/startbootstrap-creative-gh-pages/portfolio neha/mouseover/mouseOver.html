@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script>
+    <style>
+        body{
+            background-color: black;
+        }
+        img{
+            width: 389px;
+            height:290px;
+            border: 10px solid aqua;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <img id='menuImg' src="img1.jpg" alt="img1.jpg" onmouseout="setNewImage(this)" onmouseover="setNewImage(this)"/>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+<script>
+    let ImgArr = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg']
+function setNewImage(x) {
+    let randomIndex = Math.floor(Math.random()* (4 - 0 + 0) + 0)
+    let index =ImgArr.indexOf(x.alt)
+    if(randomIndex===ImgArr.length) {
+        randomIndex=0;
+    }else if(randomIndex===index ){
+        randomIndex=index -1 < 0 ? 4 : index + 1
+    }
+    x.src=ImgArr[randomIndex]
+    x.alt = ImgArr[randomIndex]
+}
+</script>
+</body>
+
+</html>

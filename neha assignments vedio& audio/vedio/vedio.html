@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script><!--  -->
+  <style>
+    #display {
+      height: 491px;
+      width: 518px;
+      margin-left: 280px;
+      margin-top: 5px;
+      border: 5px solid blue;
+      border-radius: 10px;
+    }
+
+    button {
+      margin-left: 450px;
+      cursor: pointer;
+    }
+
+
+    button:hover{
+      background-color:green;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-left: 40px;
+      margin-right: 40px;
+      color: rgb(45, 10, 160);
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Study nature, love nature, stay close to nature. It will never fail you.- Frank Lloyd Wright</h1>
+  <div class="container">
+    <div class="row">
+    </div>
+    <div class="row">
+
+      <div class="col-sm-12">
+        <video id="display" alt="video1.mp4" controls class="thumbnail" src="video1.mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div class="row">
+      <button onclick="displayVedio()" class="col-sm-2 btn btn-danger"> Next video</button>
+    </div>
+  </div>
+
+
+  
+  <script>
+    function displayVedio() {
+      var arr = ["video1.mp4", "video2.mp4", "video3.mp4", "video4.mp4", "video5.mp4", "video6.mp4", "video7.mp4",
+        "video8.mp4", "video9.mp4"
+      ]
+      console.log('hey----------------');
+      let index = Math.floor(Math.random() * (8 - 0) + 0);
+      console.log('index', index);
+      let dis = document.querySelector("#display");
+      if (arr[index] === dis.alt) {
+        if (index === 0) {
+          index = 8;
+        } else if (index === 8) {
+          index = 0;
+        } else {
+          index += 1;
+        }
+      }
+      dis.src = arr[index];
+      dis.alt = arr[index];
+    }
+  </script>
+
+</body>
+
+</html>

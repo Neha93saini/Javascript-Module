@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+
+        }
+
+        #alpha {
+            margin-top: 0px;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #e6690f;
+            font-size: 101px;
+            border: 10px solid blue;
+            word-break: break-all;
+            border-radius: 30px;
+        }
+
+        h1 {
+            color: greenyellow;
+            text-align: center;
+            font-size: 30px;
+            background-color: green;
+        }
+
+        img {
+            width: 600px;
+            height: 300px;
+            margin-left: 350px;
+            margin-top: -80px;
+            border: 3px solid green;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1> Alphabets</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p id="alpha"></p>
+            <div>
+
+            </div>
+
+        </div>
+    </div>
+    <img id='menuImg' src="a.gif" alt="a.gif" onmouseout="setNewImage(this)" onmouseover="setNewImage(this)" />
+
+    <script>
+        let alphabet = [...Array(26)].map((_, i) => String.fromCharCode(i + 65));
+        console.log(alphabet);
+        let alp = document.getElementById("alpha")
+        alp.innerHTML = alphabet;
+        console.log(alp);
+        let ImgArr = ['a.gif', 'b.gif', 'c.gif', 'd.gif', 'e.gif','g.gif']
+
+        function setNewImage(x) {
+            let randomIndex = Math.floor(Math.random() * (5 - 0 + 0) + 0)
+            let index = ImgArr.indexOf(x.alt)
+            if (randomIndex === ImgArr.length) {
+                randomIndex = 0;
+            } else if (randomIndex === index) {
+                randomIndex = index - 1 < 0 ? 5 : index + 1
+            }
+            x.src = ImgArr[randomIndex]
+            x.alt = ImgArr[randomIndex]
+        }
+    </script>
+
+</body>
+
+</html>

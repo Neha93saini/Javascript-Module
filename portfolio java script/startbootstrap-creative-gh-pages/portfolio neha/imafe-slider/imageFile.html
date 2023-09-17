@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script>
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(215, 223, 105,1);
+
+        }
+
+        h2 {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: black;
+            text-align: center;
+            font-size: x-large;
+
+        }
+
+        #largeImg {
+            border: 10px solid black;
+            border-radius: 2px;
+            height: 200px !important;
+            width: 400px !important;
+            
+            /* margin-left: 159px !important; */
+        }
+        #div-img{
+            object-fit: contain;
+            text-align: center;
+
+        }
+        #largeImg.active {
+            opacity: 1;
+
+        }
+
+        #caption.active {
+            opacity: 1;
+        }
+
+        #caption {
+            opacity: 0;
+            /* margin-left: 369px !important; */
+        }
+
+        img {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <div  id="div-img" class="col-sm-12">
+                <h2> Look deep into nature, and then you will understand everything better. </h2>
+                <img src="img1.jpg" alt="Image 1" class="img-responsive text-center " id="largeImg">
+                <p id="caption">Image 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="smallimg">
+                    <img src="img1.jpg" class="rounded-circle" alt="Image 1" height="0" width="0" id="thumb1">
+                    <img src="img2.jpg" class="rounded-circle" alt="Image 2" height="0" width="0" id="thumb2">
+                    <img src="img3.jpg" class="rounded-circle" alt="Image 3" height="0" width="0" id="thumb3">
+                    <img src="img4.jpg" class="rounded-circle" alt="Image 4" height="0" width="0" id="thumb4">
+                    <img src="img5.jpg" class="rounded-circle" alt="Image 5" height="0" width="0" id="thumb5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let imageCounter = 0
+        let setInt = setInterval(() => {
+            const imagesdiv = document.getElementsByClassName("smallimg");
+            const imagesList = imagesdiv[0].children;
+            document.querySelector("#largeImg").classList.remove("active");
+            document.querySelector("#caption").classList.remove("active");
+            if (imageCounter === imagesList.length) {
+                imageCounter = 0;
+            }
+            document.querySelector("#largeImg").src = imagesList[imageCounter].src;
+            document.querySelector("#largeImg").classList.add("active");
+            document.querySelector("#caption").innerHTML = imagesList[imageCounter].alt;
+            document.querySelector("#caption").classList.add("active");
+            imageCounter++
+        }, 2000)
+    </script>
+</body>
+
+</html>

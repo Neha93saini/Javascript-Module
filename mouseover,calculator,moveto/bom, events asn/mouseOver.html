@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        img{
+            width: 750px;
+            height:450px;
+            margin-left: 300px;
+            margin-top: 70px;
+            border: 10px solid aqua;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id='menuImg' src="img1.jpg" alt="img1.jpg" onmouseout="setNewImage(this)" onmouseover="setNewImage(this)"/>
+
+
+
+<script>
+    let ImgArr = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg']
+function setNewImage(x) {
+    let randomIndex = Math.floor(Math.random()* (4 - 0 + 0) + 0)
+    let index =ImgArr.indexOf(x.alt)
+    if(randomIndex===ImgArr.length) {
+        randomIndex=0;
+    }else if(randomIndex===index ){
+        randomIndex=index -1 < 0 ? 4 : index + 1
+    }
+    x.src=ImgArr[randomIndex]
+    x.alt = ImgArr[randomIndex]
+}
+</script>
+</body>
+
+</html>

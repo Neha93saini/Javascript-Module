@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: rgb(31, 16, 16);
+        
+        }
+
+        h2{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: red;
+            text-align: center;
+            font-size: x-large;
+
+        }
+        #largeImg{
+        
+            display: block;
+            width: 50%;
+            border:10px solid black;
+            border-radius: 2px;
+            margin: 300px;
+            margin-top: 50px;
+
+        }
+        #largeImg.active {
+            opacity: 1;
+
+        }
+        #caption.active {
+            opacity: 1;
+        }
+        #caption {
+            opacity: 0;
+        }
+        img {
+            opacity: 0;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    
+    <h2> Look deep into nature, and then you will understand everything better. </h2>
+
+    <img src="img1.jpg" alt="Image 1" id="largeImg" height="450">
+    <p id="caption">Image 1</p>
+   
+    <div class="smallimg">
+        <img src="img1.jpg"  class="rounded-circle"alt="Image 1" height="200" width="300px" id="thumb1">
+        <img src="img2.jpg"  class="rounded-circle"alt="Image 2" height="200" width="300px" id="thumb2">
+        <img src="img3.jpg"  class="rounded-circle"alt="Image 3" height="200"width="300px"  id="thumb3">
+        <img src="img4.jpg" class="rounded-circle" alt="Image 4" height="200"  width="300px" id="thumb4">
+        <img src="img5.jpg"class="rounded-circle" alt="Image 5" height="200" width="300px" id="thumb5">
+      
+    </div>
+    
+
+    <script>
+        // function changeImg() {
+        //     console.log('this', this);
+        //     document.querySelector("#largeImg").src = this.src;
+        //     document.querySelector("#caption").innerHTML = this.alt;
+        // }
+        let imageCounter = 0
+
+        let setInt = setInterval(() => {
+         const imagesdiv = document.getElementsByClassName("smallimg");
+         const imagesList = imagesdiv[0].children;
+         document.querySelector("#largeImg").classList.remove("active");
+         document.querySelector("#caption").classList.remove("active");
+         if(imageCounter === imagesList.length) {
+            imageCounter = 0 ;
+         }
+         document.querySelector("#largeImg").src = imagesList[imageCounter].src;
+         document.querySelector("#largeImg").classList.add("active");
+         document.querySelector("#caption").innerHTML = imagesList[imageCounter].alt;
+         document.querySelector("#caption").classList.add("active");
+         imageCounter ++ 
+        }, 2000)
+        // document.querySelector("#thumb1").onclick = changeImg;
+        // document.querySelector("#thumb2").onclick = changeImg;
+        // document.querySelector("#thumb3").onclick = changeImg;
+        // document.querySelector("#thumb4").onclick = changeImg;
+        // document.querySelector("#thumb5").onclick = changeImg;
+        // document.querySelector("#thumb6").onclick = changeImg;
+    </script>
+</body>
+
+</html>

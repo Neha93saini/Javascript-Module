@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+        }
+       
+    </style>
+</head>
+<body>
+    <div>
+        <img src="img8.jpg" alt="image1" id="img">
+    
+    </div>
+
+    <script>
+        let move =0;
+        function moveRight(){
+            move+=1;
+            if(move>600) move= 0;
+            document.getElementById("img").style.left= move+"px";
+            document.getElementById("img").style.bottom= move+"px";
+            document.getElementById("img").innerHTML = move+"px";
+          
+        }
+        setInterval(moveRight, 10);
+
+    </script>
+    
+</body>
+</html>
